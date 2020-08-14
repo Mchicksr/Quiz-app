@@ -1,0 +1,52 @@
+body{
+   
+    margin: 0;
+   padding:0;
+   text-align: center;
+   
+}
+
+h1{
+    margin:0;
+    padding:0;
+    text-align: center;
+    /*background-color:rgb(6, 6, 61);*/
+    padding-bottom:40px;
+    padding-top: 40px;
+    font-size: 40px;
+    font-family: 'Righteous', cursive;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 30px;  
+    border: 10px solid rgb(0, 0, 0);
+}
+
+main{
+    box-sizing: content-box;
+    text-align: center;
+    width: 50%;
+    height: 500px;
+    padding: 30px;
+    border: 10px solid rgb(0, 0, 0);
+    margin-left: 20%;
+    margin-top: 1%;
+  }
+
+  /*@media all and(min-width: 600px) {
+    header{
+    font-size:52px;
+    display: flex;
+    justify-content:space-between;
+    padding:0 30px;
+    }
+}*/
+
+    @media all and (min-width: 450px) {
+        .wrapper{
+          width:80%;
+          margin:auto;
+          
+          
+        }
+        
+    }
