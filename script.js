@@ -82,13 +82,14 @@ function main() {
   
   function submitAnswer(event){
     event.preventDefault();
-$('input[name=answers]:checked').val
-  }
+$('input[name=answers]:checked').val;
+  
   $('main').on('submit','form',submitAnswer);
 };
 
+
 //.main funciton close
-//console.log('hey');
+console.log('hey');
+}
 
-
-$(main);
+main()
