@@ -111,21 +111,21 @@ function main() {
   
   function submitAnswer(){
     let ans =$("input[name='answers']:checked").val();
-    console.log(ans)
+    console.log(ans);
     if(STORE.questions[STORE.currentQuestions].correctAnswer === ans){
-      console.log('right')
-      $('.answer-result').html('You are right!')
-      $('.modal').css('display', 'inline')
+      console.log('right');
+      $('.answer-result').html('You are right!');
+      $('.modal').css('display', 'inline');
       //alert('lucky guess.');
-      let correctDiv =$(`<div class='correct'>lucky guess!</div>`);
+      //let correctDiv =$(`<div class='correct'>lucky guess!</div>`);
       
       STORE.score++;
     }else{
-      console.log('wrong')
-      $('.answer-result').html('You are wrong!')
-      $('.modal').css('display', 'inline')
+      console.log('wrong');
+      $('.answer-result').html('You are wrong!');
+      $('.modal').css('display', 'inline');
       STORE.score;
-      let wrongDiv = $(`<div class='wrong'>Na</div>`);
+      //let wrongDiv = $(`<div class='wrong'>Na</div>`);
       // renderModal('wrong');
     
     //alert('are you sure your a master?');
@@ -137,13 +137,13 @@ function main() {
     $('main').on('click', '.close', function() {
       $('.modal').css('display', 'none')
       STORE.currentQuestions++;
-    if(STORE.currentQuestions===STORE.questions.length){
-      alert('completed');
-      let endpage = generateEndGame();
-      $('main').html(endpage);
-    }else{
-       renderList();
-    }
+      if(STORE.currentQuestions===STORE.questions.length){
+        alert('completed');
+        let endpage = generateEndGame();
+        $('main').html(endpage);
+      }else{
+        renderList();
+      }
     });
   }
   
@@ -155,8 +155,13 @@ function main() {
   function tryagain() {
     $('main').on('click','button.endGame',function(){
       console.log('hey endgame was clicked',this);
-      generateStartPage();
-      renderList();
+      if(STORE.currentQuestions===STORE.questions.length){
+        let restart= generateStartPage();
+        $('main').html(restart);
+      }
+      
+      
+      
     });
     
   }
@@ -180,12 +185,12 @@ console.log('hey');
 
 
 function intializeListeners() {
-  main();
-  closeModal();
-  startQuiz();
-  handleSubmitAnswer();
+    main();
+    closeModal();
+    startQuiz();
+    handleSubmitAnswer();
    //renderModal();
-   tryagain();
+    tryagain();
    
 };
 
