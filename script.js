@@ -12,27 +12,27 @@ function main() {
        answers: ['1940', '1957', '1967'],
        correctAnswer: '1957'
      },
-     {
-       name: 'What was Dababy\'s first no. 1 Album',
-       answers: [ 'Rockstar', 'B.O.P', 'Suge'],
-       correctAnswer: 'Rockstar'
-     },
-     {
-       name: 'What artist did logic name an album series after',
-       answers: ['Rick Ross', 'Muddy Waters', 'Frank Sinatra'],
-       correctAnswer: 'Frank Sinatra'
-     },
-     {
-       name: 'Who was the first lead singer of journey',
-       answers: ['Steve Perry', 'Neal Schon', 'Jonathan Cain'],
-       correctAnswer: 'Steve Perry'
-     },
-     {
-       name: 'What country is Sia from?',
-       answers: ['Australia', 'Canada', 'USA'],
-       correctAnswer: 'Australia'
+    //  {
+    //    name: 'What was Dababy\'s first no. 1 Album',
+    //    answers: [ 'Rockstar', 'B.O.P', 'Suge'],
+    //    correctAnswer: 'Rockstar'
+    //  },
+    //  {
+    //    name: 'What artist did logic name an album series after',
+    //    answers: ['Rick Ross', 'Muddy Waters', 'Frank Sinatra'],
+    //    correctAnswer: 'Frank Sinatra'
+    //  },
+    //  {
+    //    name: 'Who was the first lead singer of journey',
+    //    answers: ['Steve Perry', 'Neal Schon', 'Jonathan Cain'],
+    //    correctAnswer: 'Steve Perry'
+    //  },
+    //  {
+    //    name: 'What country is Sia from?',
+    //    answers: ['Australia', 'Canada', 'USA'],
+    //    correctAnswer: 'Australia'
     
-     },
+    //  },
    ]
   };
   //let score = 0;
@@ -156,9 +156,10 @@ function main() {
     $('main').on('click','button.endGame',function(){
       console.log('hey endgame was clicked',this);
       if(STORE.currentQuestions===STORE.questions.length){
-        let restart= generateStartPage();
+        let restart= generateStartPage();   
         $('main').html(restart);
-        renderList();
+        startQuiz();
+        
       }
       
       
