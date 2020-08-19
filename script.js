@@ -14,13 +14,13 @@ function main() {
      },
      {
        name: 'What was Dababy\'s first no. 1 Album',
-       answers: [ 'Rockstar', 'B.O.P', 'suge'],
+       answers: [ 'Rockstar', 'B.O.P', 'Suge'],
        correctAnswer: 'Rockstar'
      },
      {
        name: 'What artist did logic name an album series after',
-       answers: ['Rick Ross', 'muddy waters', 'frank sinatra'],
-       correctAnswer: 'frank sinatra'
+       answers: ['Rick Ross', 'Muddy Waters', 'Frank Sinatra'],
+       correctAnswer: 'Frank Sinatra'
      },
      {
        name: 'Who was the first lead singer of journey',
@@ -71,8 +71,8 @@ function main() {
   }
   function generateStartPage(){
     return` <div class="StartPage">
-    <h2>Welcome Younge Student<h2>
-  <p>are you ready to become a master of music?</p>
+    <h2>Welcome Travler<h2>
+  <p>Are you ready to become a Master of Music?</p>
   <button class= "startQuiz">Start</button>
   </div>
     `;
@@ -80,8 +80,8 @@ function main() {
 
   function generateEndGame(){
     return` <div class="StartPage">
-    <h2>Your done go home.<h2>
-  <p>wait. your score is ${STORE.score}!</p>
+    <h2>You have completed your journey.<h2>
+  <p>Your score is ${STORE.score}!</p>
   <button class= "endGame">Try Again</button>
   </div>
     `;
@@ -158,6 +158,7 @@ function main() {
       if(STORE.currentQuestions===STORE.questions.length){
         let restart= generateStartPage();
         $('main').html(restart);
+        renderList();
       }
       
       
