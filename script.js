@@ -1,42 +1,41 @@
 
 function main() {
-  
+
   const STORE = {
-    currentQuestions:0,
-    score:0,
-    questions: 
-   [
-    
-     {
-       name: 'What year did the beatles begin',
-       answers: ['1940', '1957', '1967'],
-       correctAnswer: '1957'
-     },
-    //  {
-    //    name: 'What was Dababy\'s first no. 1 Album',
-    //    answers: [ 'Rockstar', 'B.O.P', 'Suge'],
-    //    correctAnswer: 'Rockstar'
-    //  },
-    //  {
-    //    name: 'What artist did logic name an album series after',
-    //    answers: ['Rick Ross', 'Muddy Waters', 'Frank Sinatra'],
-    //    correctAnswer: 'Frank Sinatra'
-    //  },
-    //  {
-    //    name: 'Who was the first lead singer of journey',
-    //    answers: ['Steve Perry', 'Neal Schon', 'Jonathan Cain'],
-    //    correctAnswer: 'Steve Perry'
-    //  },
-    //  {
-    //    name: 'What country is Sia from?',
-    //    answers: ['Australia', 'Canada', 'USA'],
-    //    correctAnswer: 'Australia'
-    
-    //  },
-   ]
+    currentQuestions: 0,
+    score: 0,
+    questions:
+      [
+
+        {
+          name: 'What year did the beatles begin',
+          answers: ['1940', '1957', '1967'],
+          correctAnswer: '1957'
+        },
+        {
+           name: 'What was Dababy\'s first no. 1 Album',
+           answers: [ 'Rockstar', 'B.O.P', 'Suge'],
+           correctAnswer: 'Rockstar'
+         },
+         {
+           name: 'What artist did logic name an album series after',
+           answers: ['Rick Ross', 'Muddy Waters', 'Frank Sinatra'],
+           correctAnswer: 'Frank Sinatra'
+         },
+         {
+           name: 'Who was the first lead singer of journey',
+           answers: ['Steve Perry', 'Neal Schon', 'Jonathan Cain'],
+           correctAnswer: 'Steve Perry'
+         },
+        {
+          name: 'What country is Sia from?',
+          answers: ['Australia', 'Canada', 'USA'],
+          correctAnswer: 'Australia'
+
+        },
+      ]
   };
-  //let score = 0;
-  //1.Template Generators
+  
   function generatorHTML() {
     let question = STORE.questions[STORE.currentQuestions];
 
@@ -69,8 +68,8 @@ function main() {
     </div> 
     `;
   }
-  function generateStartPage(){
-    return` <div class="StartPage">
+  function generateStartPage() {
+    return ` <div class="StartPage">
     <h2>Welcome Travler<h2>
   <p>Are you ready to become a Master of Music?</p>
   <button class= "startQuiz">Start</button>
@@ -78,8 +77,8 @@ function main() {
     `;
   }
 
-  function generateEndGame(){
-    return` <div class="StartPage">
+  function generateEndGame() {
+    return ` <div class="StartPage">
     <h2>You have completed your journey.<h2>
   <p>Your score is ${STORE.score}!</p>
   <button class= "endGame">Try Again</button>
@@ -92,77 +91,86 @@ function main() {
     console.log('`renderlist` ran');
     $('main').html(html);
   }
-  
 
-  
- 
+
+
+
 
   function main() {
     let startPage = generateStartPage();
-    
+
     $('main').html(startPage);
+
     
-    //renderList();
     console.log(STORE.questions);
   }
-  // console.log(main());
-  
-  
-  
-  function submitAnswer(){
-    let ans =$("input[name='answers']:checked").val();
+ 
+
+
+
+  function submitAnswer() {
+    let ans = $("input[name='answers']:checked").val();
     console.log(ans);
-    if(STORE.questions[STORE.currentQuestions].correctAnswer === ans){
+    if (STORE.questions[STORE.currentQuestions].correctAnswer === ans) {
       console.log('right');
       $('.answer-result').html('You are right!');
       $('.modal').css('display', 'inline');
-      //alert('lucky guess.');
-      //let correctDiv =$(`<div class='correct'>lucky guess!</div>`);
-      
+
+
       STORE.score++;
-    }else{
+    } else {
       console.log('wrong');
       $('.answer-result').html('You are wrong!');
       $('.modal').css('display', 'inline');
       STORE.score;
-      //let wrongDiv = $(`<div class='wrong'>Na</div>`);
-      // renderModal('wrong');
-    
-    //alert('are you sure your a master?');
+
     }
-    
+
   }
-  
+
   function closeModal() {
-    $('main').on('click', '.close', function() {
+    $('main').on('click', '.close', function () {
       $('.modal').css('display', 'none')
       STORE.currentQuestions++;
-      if(STORE.currentQuestions===STORE.questions.length){
+      if (STORE.currentQuestions === STORE.questions.length) {
         alert('completed');
         let endpage = generateEndGame();
         $('main').html(endpage);
-      }else{
+      } else {
         renderList();
       }
     });
   }
-  
+
   function startQuiz() {
-    $('main').on('click','.startQuiz',function(){
+    $('main').on('click', '.startQuiz', function () {
       renderList();
     });
   }
-  
-      
-      
-      
+
+  function tryagain() {
+    $('main').on('click', '.endGame', function () {
+      if (STORE.currentQuestions === STORE.questions.length) {
+        STORE.currentQuestions = 0;
+        STORE.score = 0;
+        let endpage = generateStartPage();
+        $('main').html(endpage);
+      }
+      startQuiz();
+      //renderList();
     });
-    
   }
-  
-  
+
+
+
+
+
+
+
+
+
   function handleSubmitAnswer() {
-    $('main').on('submit','.form', function(e) {
+    $('main').on('submit', '.form', function (e) {
       e.preventDefault();
       submitAnswer();
     });
@@ -174,21 +182,21 @@ function main() {
   });*/
 
 
-//.main funciton close
-console.log('hey');
+
+  //.main funciton close
+  console.log('hey');
 
 
-function intializeListeners() {
+  function intializeListeners() {
     main();
     closeModal();
     startQuiz();
     handleSubmitAnswer();
-   //renderModal();
     tryagain();
-   
-};
 
-$(intializeListeners);
+  };
+
+  $(intializeListeners);
 
 }
 
