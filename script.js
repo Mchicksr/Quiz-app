@@ -152,15 +152,7 @@ function main() {
       renderList();
     });
   }
-  function tryagain() {
-    $('main').on('click','button.endGame',function(){
-      console.log('hey endgame was clicked',this);
-      if(STORE.currentQuestions===STORE.questions.length){
-        let restart= generateStartPage();   
-        $('main').html(restart);
-        startQuiz();
-        
-      }
+  
       
       
       
