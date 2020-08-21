@@ -8,25 +8,25 @@ function main() {
       [
 
         {
-          name: 'What year did the beatles begin',
+          name: 'What year did the Beatles begin',
           answers: ['1940', '1957', '1967'],
           correctAnswer: '1957'
         },
         {
-           name: 'What was Dababy\'s first no. 1 Album',
-           answers: [ 'Rockstar', 'B.O.P', 'Suge'],
-           correctAnswer: 'Rockstar'
-         },
-         {
-           name: 'What artist did logic name an album series after',
-           answers: ['Rick Ross', 'Muddy Waters', 'Frank Sinatra'],
-           correctAnswer: 'Frank Sinatra'
-         },
-         {
-           name: 'Who was the first lead singer of journey',
-           answers: ['Steve Perry', 'Neal Schon', 'Jonathan Cain'],
-           correctAnswer: 'Steve Perry'
-         },
+          name: 'What was DaBaby\'s first no. 1 Hit',
+          answers: [ 'Rockstar', 'B.O.P', 'Suge'],
+          correctAnswer: 'Rockstar'
+        },
+        {
+          name: 'What artist did logic name an album series after',
+          answers: ['Rick Ross', 'Muddy Waters', 'Frank Sinatra'],
+          correctAnswer: 'Frank Sinatra'
+        },
+        {
+          name: 'Who was the first lead singer of journey',
+          answers: ['Steve Perry', 'Neal Schon', 'Jonathan Cain'],
+          correctAnswer: 'Steve Perry'
+        },
         {
           name: 'What country is Sia from?',
           answers: ['Australia', 'Canada', 'USA'],
@@ -70,7 +70,7 @@ function main() {
   }
   function generateStartPage() {
     return ` <div class="StartPage">
-    <h2>Welcome Travler<h2>
+    <h2>Welcome Traveler<h2>
   <p>Are you ready to become a Master of Music?</p>
   <button class= "startQuiz">Start</button>
   </div>
