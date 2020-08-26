@@ -181,10 +181,11 @@ function main() {
         submitAnswer();
         
 
+      } else {
+        console.log('b');
+        alert('please select answer');
+        $('.answer-result').html('please select answer');
       }
-      
-       
-      
     });
   }
 
