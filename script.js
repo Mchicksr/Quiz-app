@@ -8,27 +8,28 @@ function main() {
       [
 
         {
-          name: 'What year did the Beatles begin',
+          
+          name: 'Question #1\nWhat year did the Beatles begin',
           answers: ['1940', '1957', '1967'],
           correctAnswer: '1957'
         },
         {
-          name: 'What was DaBaby\'s first no. 1 Hit',
+          name: 'Question #2\nWhat was DaBaby\'s first no. 1 Hit',
           answers: [ 'Rockstar', 'B.O.P', 'Suge'],
           correctAnswer: 'Rockstar'
         },
         {
-          name: 'What artist did logic name an album series after',
+          name: 'Question #3\nWhat artist did logic name an album series after',
           answers: ['Rick Ross', 'Muddy Waters', 'Frank Sinatra'],
           correctAnswer: 'Frank Sinatra'
         },
         {
-          name: 'Who was the first lead singer of journey',
+          name: 'Question #4\nWho was the first lead singer of journey',
           answers: ['Steve Perry', 'Neal Schon', 'Jonathan Cain'],
           correctAnswer: 'Steve Perry'
         },
         {
-          name: 'What country is Sia from?',
+          name: 'Question #5\nWhat country is Sia from?',
           answers: ['Australia', 'Canada', 'USA'],
           correctAnswer: 'Australia'
 
@@ -46,7 +47,9 @@ function main() {
           <div class="modal-header">
             <button type="button" class="close">&times;</button>
             <h2 class="answer-result"></h2>
+            <p class= 'score'</p>
           </div>
+          
           <div class="modal-body">
             <p class="answer-result:></p>
           </div>
@@ -113,21 +116,23 @@ function main() {
     console.log(ans);
     if (STORE.questions[STORE.currentQuestions].correctAnswer === ans) {
       console.log('right');
+      
       $('.answer-result').html('You are right!');
       $('.modal').css('display', 'inline');
 
-
+      
       STORE.score++;
+      $('.score').html(`Your score is ${STORE.score}`);
     } else {
       console.log('wrong');
-      $('.answer-result').html('You are wrong!');
+      $('.score').html(`Your score is ${STORE.score}`);
+      $('.answer-result').html('Your are wrong!');
       $('.modal').css('display', 'inline');
       STORE.score;
-
-    }
-
+    } 
+    
   }
-
+  
   function closeModal() {
     $('main').on('click', '.close', function () {
       $('.modal').css('display', 'none')
@@ -172,7 +177,14 @@ function main() {
   function handleSubmitAnswer() {
     $('main').on('submit', '.form', function (e) {
       e.preventDefault();
-      submitAnswer();
+      if ($("input[type=radio]:checked").length > 0) {
+        submitAnswer();
+        
+
+      }
+      
+       
+      
     });
   }
 
@@ -184,7 +196,7 @@ function main() {
 
 
   //.main funciton close
-  console.log('hey');
+ 
 
 
   function intializeListeners() {
@@ -193,6 +205,7 @@ function main() {
     startQuiz();
     handleSubmitAnswer();
     tryagain();
+    
 
   };
 
